@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<robot name="simplearm" xmlns:xacro="http://ros.org/wiki/xacro">
+
+ <link name="base_link"/>
+
+ <link name="simplearm_link_base">
+  <visual>
+   <geometry>
+    <cylinder length="0.10" radius="0.10"/>
+   </geometry>
+  </visual>
+ </link>
+
+ <joint name="base_link_to_simplearm_link_base" type="fixed">
+  <parent link="base_link"/>
+  <child link="simplearm_link_base"/>                         
+  <origin rpy="0 0 0" xyz="0 0 0.05"/>
+ </joint>   
+ 
+ <link name="simplearm_link1">
+  <visual>
+   <origin rpy="0 0 0" xyz="0.25 0 0"/>
+   <geometry>
+    <box size="0.50 0.10 0.05"/>
+   </geometry>
+   <material name="silver">
+    <color rgba="0.75 0.75 0.75 1"/>
+   </material>
+  </visual>
+ </link>
+
+ <joint name="simplearm_joint1" type="continuous">
+  <axis xyz="0 0 1"/>
+  <parent link="simplearm_link_base"/>
+  <child link="simplearm_link1"/>
+  <origin rpy="0 0 0" xyz="0 0 0.075"/>
+ </joint>
+
+ <link name="simplearm_link2">
+  <visual>
+   <origin rpy="0 0 0" xyz="0.25 0 0"/>
+   <geometry>
+    <box size="0.50 0.10 0.05"/>
+   </geometry>
+   <material name="green">
+    <color rgba="0.3 1.0 0.3 1.0"/>
+   </material>
+  </visual>
+ </link>
+
+ <joint name="simplearm_joint2" type="continuous">
+  <axis xyz="0 0 1"/>
+  <parent link="simplearm_link1"/>
+  <child link="simplearm_link2"/>
+  <origin rpy="0 0 0" xyz="0.50 0 0.05"/>
+ </joint>
+
+</robot>
