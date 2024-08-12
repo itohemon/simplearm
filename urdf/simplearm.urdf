@@ -3,7 +3,7 @@
 
  <link name="base_link"/>
 
- <link name="simplearm_link_base">
+ <link name="link0">
   <visual>
    <geometry>
     <cylinder length="0.10" radius="0.10"/>
@@ -11,13 +11,13 @@
   </visual>
  </link>
 
- <joint name="base_link_to_simplearm_link_base" type="fixed">
+ <joint name="base_link_to_link0" type="fixed">
   <parent link="base_link"/>
-  <child link="simplearm_link_base"/>                         
+  <child link="link0"/>
   <origin rpy="0 0 0" xyz="0 0 0.05"/>
  </joint>   
  
- <link name="simplearm_link1">
+ <link name="link1">
   <visual>
    <origin rpy="0 0 0" xyz="0.25 0 0"/>
    <geometry>
@@ -29,14 +29,14 @@
   </visual>
  </link>
 
- <joint name="simplearm_joint1" type="continuous">
+ <joint name="joint1" type="continuous">
   <axis xyz="0 0 1"/>
-  <parent link="simplearm_link_base"/>
-  <child link="simplearm_link1"/>
+  <parent link="link0"/>
+  <child link="link1"/>
   <origin rpy="0 0 0" xyz="0 0 0.075"/>
  </joint>
 
- <link name="simplearm_link2">
+ <link name="link2">
   <visual>
    <origin rpy="0 0 0" xyz="0.25 0 0"/>
    <geometry>
@@ -48,10 +48,10 @@
   </visual>
  </link>
 
- <joint name="simplearm_joint2" type="continuous">
+ <joint name="joint2" type="continuous">
   <axis xyz="0 0 1"/>
-  <parent link="simplearm_link1"/>
-  <child link="simplearm_link2"/>
+  <parent link="link1"/>
+  <child link="link2"/>
   <origin rpy="0 0 0" xyz="0.50 0 0.05"/>
  </joint>
 
