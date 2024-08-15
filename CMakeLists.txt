@@ -14,9 +14,13 @@ find_package(sensor_msgs REQUIRED)
 add_library(${PROJECT_NAME} SHARED
   src/pub_joint_state.cpp
   src/kinematic1.cpp
+  src/inverted_kinematic.cpp
 )
 ament_target_dependencies(${PROJECT_NAME} rclcpp rclcpp_components sensor_msgs)
-rclcpp_components_register_nodes(${PROJECT_NAME} "simplearm::PubJointState" "simplearm::Kinematic1")
+rclcpp_components_register_nodes(${PROJECT_NAME}
+  "simplearm::PubJointState"
+  "simplearm::Kinematic1"
+  "simplearm::InvertedKinematic")
 
 install(TARGETS ${PROJECT_NAME} DESTINATION lib)
 
